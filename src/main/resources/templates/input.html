@@ -5,16 +5,17 @@
     <title>Task of Thymeleaf</title>
 </head>
 <body>
-    <h1>Thymeleaf課題</h1>
-    <h2>入力画面</h2>
-        <p>値を入力してください。</p>
-            
-        <!-- previous に値があればメッセージを表示する -->
-        <p th:if="${param.previous != null}" th:text="'前回入力された値は「' + ${param.previous} + '」でした。'"></p>
-            
-        <form method="post" action="/output">
-            <input type="text" name="inputValue" th:value="${param.previous}">
-            <button type="submit">送信</button>
-        </form>
+    <h1 th:text="#{all.title}"></h1>
+    <h2 th:text="#{input.title}"></h2>
+    <p th:text="#{input.message}"></p>
+
+    <!-- previous に値があればメッセージを表示する -->
+    <p th:if="${previous != null}" 
+       th:text="#{previous.message(${previous})}"></p>
+
+    <form method="post" action="/output">
+        <input type="text" name="inputValue" th:value="${previous}">
+        <button type="submit" th:text="#{button.submit}"></button>
+    </form>
 </body>
 </html>

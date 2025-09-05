@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class OutputController {
-	
-	@PostMapping("/output")
-	public String postOutput(@RequestParam("inputValue") String inputValue, Model model) {
-	    model.addAttribute("inputValue", inputValue);
-	    return "output";
-	}
 
+    @PostMapping("/output")
+    public String postOutput(@RequestParam("inputValue") String inputValue, Model model) {
+        model.addAttribute("inputValue", inputValue);
+        return "output";
+    }
 }
